@@ -1,0 +1,512 @@
+============================================================
+Time  2019/09/21 16:48:19 158 
+============================================================
+[2019/09/21 16:48:19 158] lgi        641  SYS_MSG_LOAD  
+[2019/09/21 16:48:19 160] lgi        663  SYS_MSG_REGCB  msp_status_cb  func(d4015f50) 
+[2019/09/21 16:48:19 160] lgi        292  LGI_MSG_INIT  
+[2019/09/21 16:48:19 160] lgi        299  lgi  lgi_  268436457  1517189283  
+[2019/09/21 16:48:19 161] lgi        332  lgi params:  appid = 5d6e777f, work_dir = .  
+[2019/09/21 16:48:19 161] lgi        346  auth_time_str=  2019/09/21 16:48:19  
+[2019/09/21 16:48:19 161] lgi        352  auth_appid=  5d6e777f  
+[2019/09/21 16:48:19 161] lgi        363  token:  nil  
+[2019/09/21 16:48:19 161] lgi        433  msc cver : 5.0.35.1173  
+[2019/09/21 16:48:19 161] lgi        476  ns_enable=  1  
+[2019/09/21 16:48:19 161] lgi        488  prot_ver=1  
+[2019/09/21 16:48:19 161] lgi        499  prot_type=tcp  
+[2019/09/21 16:48:19 162] lgi        650  SYS_MSG_UNLOAD  go bg!  
+[2019/09/21 16:48:23 248] lgi        555  LGI_MSG_START, caller =  cloud_cisr1P1HHBHjJx5ydSIgKaalq5aSHaIytUY  
+[2019/09/21 16:48:23 248] lgi        561  lgistat =   0  
+[2019/09/21 16:48:23 248] lgi        587  lgi_auth_id =  nil  
+[2019/09/21 16:48:23 248] transport  658  paramkvsport is   0  
+[2019/09/21 16:48:23 248] transport  666  ns_enable=  1  
+[2019/09/21 16:48:23 248] transport  672  net.nettype=  standard  
+[2019/09/21 16:48:23 248] transport  711  url.full=  nil  
+[2019/09/21 16:48:23 248] transport  896  switch 80  
+[2019/09/21 16:48:23 248] transport  907  net type:  standard  
+[2019/09/21 16:48:23 248] transport  908  net operator:  def  
+[2019/09/21 16:48:23 248] transport  909  use proxy:  false  
+[2019/09/21 16:48:23 248] lgi        271  [session] send lgi request  
+[2019/09/21 16:48:23 249] transport  1042 session.domain=  dev.voicecloud.cn  
+[2019/09/21 16:48:23 249] transport  1043 url.host=  dev.voicecloud.cn  
+[2019/09/21 16:48:23 249] transport  1077 NAMESERVER START  
+[2019/09/21 16:48:23 249] transport  1080 name =   ath  
+[2019/09/21 16:48:23 249] ns         629  ntt=  standard  
+[2019/09/21 16:48:23 249] transport  1083 trans,ns_inprog =  0  
+[2019/09/21 16:48:23 249] ns         585  name server start  
+[2019/09/21 16:48:23 249] ns         586  ns_sub =   ath  
+[2019/09/21 16:48:23 249] ns         588  ns_host=  dev.voicecloud.cn  
+[2019/09/21 16:48:23 249] ns         479  ns_host=  dev.voicecloud.cn  
+[2019/09/21 16:48:23 249] ns         558  GET /sip/resolver?srand=0921164811.32 HTTP/1.1
+Host: hdns.openspeech.cn
+Connection: Keep-Alive
+X-Par: ver=1.3&appid=5d6e777f&operator=UNKNOW&nettype=STANDARD&cver=5.0.35.1173&svc=ath&host=dev.voicecloud.cn&sign=8f06427428e3e903011d0addc4e62474
+User-Agent: iFLYCloud
+
+  
+[2019/09/21 16:48:23 249] ns         559  net_type =  standard  
+[2019/09/21 16:48:23 249] ns         560  cmwapascmnet =  
+[2019/09/21 16:48:23 249] ns         561  uniwapasuninet =  
+[2019/09/21 16:48:23 249] ns         562  ctwapasctnet =  
+[2019/09/21 16:48:23 249] ns         579  host=  hdns.openspeech.cn  
+[2019/09/21 16:48:23 249] network    242  gethostbyname  hdns.openspeech.cn  ns1  
+[2019/09/21 16:48:23 249] lgi        238  lver:  nil  
+[2019/09/21 16:48:23 249] lgi        243  cfg_ver:  nil  
+[2019/09/21 16:48:23 260] network    224  dns resp  0  ns1  
+[2019/09/21 16:48:23 260] ns         425  ns dns ok  42.62.116.18  
+[2019/09/21 16:48:23 260] ns         205  iplist not avail  
+[2019/09/21 16:48:23 260] ns         432  is_voicecloud_ip=  0  
+[2019/09/21 16:48:23 260] ns         439  ip_is_expected=  true  
+[2019/09/21 16:48:23 260] ns         447  ip_is_expected=  true  
+[2019/09/21 16:48:23 260] network    423  gethttpresp2  42.62.116.18  80  ns2  
+[2019/09/21 16:48:23 260] network    440  prot_type  tcp  
+[2019/09/21 16:48:23 270] transport  142  [dns] [1] response 42.62.116.18  
+[2019/09/21 16:48:23 270] transport  152  42  62  116  18  
+[2019/09/21 16:48:23 270] transport  203  ipv =  v4  
+[2019/09/21 16:48:23 270] transport  207  dns ip is v4  
+[2019/09/21 16:48:23 270] transport  181  iplist not avail  
+[2019/09/21 16:48:23 270] transport  247  no iplist now  
+[2019/09/21 16:48:23 270] network    93   iptoenv ,  ipcache  dev.voicecloud.cn  def  42.62.116.18  
+[2019/09/21 16:48:23 271] transport  291  dns cb start conn  
+[2019/09/21 16:48:23 271] transport  1276 [soc] connect   42.62.116.18  80  
+[2019/09/21 16:48:23 271] transport  1293 mspsoc.open,prot_type=  tcp  
+[2019/09/21 16:48:23 291] network    328  connected  ns2  
+[2019/09/21 16:48:23 292] network    331  send ok  273  ns2  
+[2019/09/21 16:48:23 326] transport  476  [soc] [1] connected  
+[2019/09/21 16:48:23 326] transport  1333 build http request.  
+[2019/09/21 16:48:23 328] transport  1433 POST /msp.do HTTP/1.1
+Host: dev.voicecloud.cn
+Content-Type: multipart/mixed;boundary=--
+Content-Length: 324
+User-Agent: iFLYCloud
+Cache-Control: no-cache
+Accept: */*
+
+----
+CL:73
+CT:text/plain
+
+ver=MSSP+0%2E9&sub=auth&cmd=lgi&cver=5%2E0%2E35%2E1173&key=08QAvvCOCASW0=
+----
+CL:56
+CT:text/appinfo
+CE:gzip,encrypt/0.2
+
+pÙgˇ?\ÑòÅx{|~ÉÅy{{xÜyÑ  
+[2019/09/21 16:48:23 331] transport  1753 msg:release()  
+[2019/09/21 16:48:23 332] network    340  readable  ns2  
+[2019/09/21 16:48:23 332] network    344  HTTP/1.1 200 OK
+Date: Sat, 21 Sep 2019 08:48:23 GMT
+Content-Type: application/json
+Content-Length: 314
+Connection: keep-alive
+Server: iflytek/hdns
+
+{"dns":[{"host":"dev.voicecloud.cn","sip":[{"svc":"ath","ips":[{"ip":"42.62.116.35","port":80,"idc":"dx"},{"ip":"42.62.42.10","port":1028,"idc":"dx"}],"ttl":6000,"compel":0}]}],"default":[{"host":"dev.voicecloud.cn","sip":[{"svc":"ath","ips":[{"ip":"42.62.42.10","port":1028,"idc":"dx"}],"ttl":6000,"compel":0}]}]}  
+[2019/09/21 16:48:23 333] ns         256  name server http resp  table(d4017b50) 0  udata(d401af88) 
+[2019/09/21 16:48:23 333] ns         269  ns response OK for this time!  
+[2019/09/21 16:48:23 333] ns         280  from_server=  iflytek/hdns  
+[2019/09/21 16:48:23 334] ns         363  compel :  0  
+[2019/09/21 16:48:23 336] ns         374  tick()=  82730696  
+[2019/09/21 16:48:23 336] ns         378  tick()mod=  82730696  
+[2019/09/21 16:48:23 336] ns         379  ns_host=  dev.voicecloud.cn  
+[2019/09/21 16:48:23 337] ns         392  ns_host=  dev.voicecloud.cn  
+[2019/09/21 16:48:23 337] transport  1057 ns_ip =   42.62.116.35  
+[2019/09/21 16:48:23 337] transport  1058 ip_type =  assigned_athdev.voicecloud.cn_host  
+[2019/09/21 16:48:23 338] ns         658  no data in ns_q  
+[2019/09/21 16:48:23 338] ns         659  conti_ns,ns_inprog =   1  
+[2019/09/21 16:48:23 338] transport  506  [soc] [1] send ok  499  
+[2019/09/21 16:48:23 393] transport  518  [soc] [1] readable  
+[2019/09/21 16:48:23 393] transport  1706 HTTP/1.1 200 OK
+Content-Type: text/plain
+Content-Length: 110
+X-Req-Date: 2019/09/21 16:48:23 348
+Cache-Control: no-cache
+CL: 110
+X-Res-Date: 2019/09/21 16:48:23 363
+
+ver=MSSP+0%2E9&ret=10407&cver=5%2E0%2E35%2E1173&key=092GQzd2xkAWqajMWyAIM6sIXzw2VfPEGQsVb12bTsdU1zMTX6RBVnAQ==  
+[2019/09/21 16:48:23 393] transport  1452 a_complete_httpmessage  200  
+[2019/09/21 16:48:23 393] transport  1562 is_update  false  
+[2019/09/21 16:48:23 393] lgi        99   [trans] [id = lgi_] readable  
+[2019/09/21 16:48:23 394] network    88   ipfromenv ,  ipcache  dev.voicecloud.cn  def  42.62.116.18  
+[2019/09/21 16:48:23 394] transport  982  cached ip is confirmed  
+[2019/09/21 16:48:23 395] transport  1310 [soc] disconnect   
+[2019/09/21 16:48:23 395] lgi        157  [mssp] bad response : 10407  
+[2019/09/21 16:48:23 395] lgi        69   notify_lgi_result, ret=10407, loginid=nil  
+============================================================
+Time  2019/09/21 17:00:42 052 
+============================================================
+[2019/09/21 17:00:42 052] lgi        641  SYS_MSG_LOAD  
+[2019/09/21 17:00:42 054] lgi        663  SYS_MSG_REGCB  msp_status_cb  func(14015f40) 
+[2019/09/21 17:00:42 054] lgi        292  LGI_MSG_INIT  
+[2019/09/21 17:00:42 054] lgi        299  lgi  lgi_  268436457  1517189283  
+[2019/09/21 17:00:42 054] lgi        332  lgi params:  appid = 5d6e777f, work_dir = .  
+[2019/09/21 17:00:42 054] lgi        346  auth_time_str=  2019/09/21 17:00:42  
+[2019/09/21 17:00:42 054] lgi        352  auth_appid=  5d6e777f  
+[2019/09/21 17:00:42 054] lgi        363  token:  nil  
+[2019/09/21 17:00:42 054] lgi        433  msc cver : 5.0.35.1173  
+[2019/09/21 17:00:42 054] lgi        476  ns_enable=  1  
+[2019/09/21 17:00:42 055] lgi        488  prot_ver=1  
+[2019/09/21 17:00:42 055] lgi        499  prot_type=tcp  
+[2019/09/21 17:00:42 055] lgi        650  SYS_MSG_UNLOAD  go bg!  
+[2019/09/21 17:00:46 157] lgi        555  LGI_MSG_START, caller =  cloud_cisr1P1HHBHjJxXRdRcpyaa13H5bP1Jx0se  
+[2019/09/21 17:00:46 157] lgi        561  lgistat =   0  
+[2019/09/21 17:00:46 157] lgi        587  lgi_auth_id =  nil  
+[2019/09/21 17:00:46 157] transport  658  paramkvsport is   0  
+[2019/09/21 17:00:46 157] transport  666  ns_enable=  1  
+[2019/09/21 17:00:46 157] transport  672  net.nettype=  standard  
+[2019/09/21 17:00:46 158] transport  711  url.full=  nil  
+[2019/09/21 17:00:46 158] transport  896  switch 80  
+[2019/09/21 17:00:46 158] transport  907  net type:  standard  
+[2019/09/21 17:00:46 158] transport  908  net operator:  def  
+[2019/09/21 17:00:46 158] transport  909  use proxy:  false  
+[2019/09/21 17:00:46 159] lgi        271  [session] send lgi request  
+[2019/09/21 17:00:46 159] transport  1042 session.domain=  dev.voicecloud.cn  
+[2019/09/21 17:00:46 159] transport  1043 url.host=  dev.voicecloud.cn  
+[2019/09/21 17:00:46 159] transport  1077 NAMESERVER START  
+[2019/09/21 17:00:46 159] transport  1080 name =   ath  
+[2019/09/21 17:00:46 159] ns         629  ntt=  standard  
+[2019/09/21 17:00:46 159] transport  1083 trans,ns_inprog =  0  
+[2019/09/21 17:00:46 160] ns         585  name server start  
+[2019/09/21 17:00:46 160] ns         586  ns_sub =   ath  
+[2019/09/21 17:00:46 160] ns         588  ns_host=  dev.voicecloud.cn  
+[2019/09/21 17:00:46 160] ns         479  ns_host=  dev.voicecloud.cn  
+[2019/09/21 17:00:46 160] ns         558  GET /sip/resolver?srand=0921170011.32 HTTP/1.1
+Host: hdns.openspeech.cn
+Connection: Keep-Alive
+X-Par: ver=1.3&appid=5d6e777f&operator=UNKNOW&nettype=STANDARD&cver=5.0.35.1173&svc=ath&host=dev.voicecloud.cn&sign=00ad16c328b673aa38302236a1a2a3b5
+User-Agent: iFLYCloud
+
+  
+[2019/09/21 17:00:46 160] ns         559  net_type =  standard  
+[2019/09/21 17:00:46 160] ns         560  cmwapascmnet =  
+[2019/09/21 17:00:46 160] ns         561  uniwapasuninet =  
+[2019/09/21 17:00:46 161] ns         562  ctwapasctnet =  
+[2019/09/21 17:00:46 161] ns         579  host=  hdns.openspeech.cn  
+[2019/09/21 17:00:46 161] network    242  gethostbyname  hdns.openspeech.cn  ns1  
+[2019/09/21 17:00:46 165] lgi        238  lver:  nil  
+[2019/09/21 17:00:46 165] lgi        243  cfg_ver:  nil  
+[2019/09/21 17:00:46 175] network    224  dns resp  0  ns1  
+[2019/09/21 17:00:46 175] ns         425  ns dns ok  42.62.116.35  
+[2019/09/21 17:00:46 175] ns         205  iplist not avail  
+[2019/09/21 17:00:46 176] ns         432  is_voicecloud_ip=  0  
+[2019/09/21 17:00:46 176] ns         439  ip_is_expected=  true  
+[2019/09/21 17:00:46 176] ns         447  ip_is_expected=  true  
+[2019/09/21 17:00:46 176] network    423  gethttpresp2  42.62.116.35  80  ns2  
+[2019/09/21 17:00:46 176] network    440  prot_type  tcp  
+[2019/09/21 17:00:46 185] transport  142  [dns] [1] response 42.62.116.34  
+[2019/09/21 17:00:46 185] transport  152  42  62  116  34  
+[2019/09/21 17:00:46 185] transport  203  ipv =  v4  
+[2019/09/21 17:00:46 185] transport  207  dns ip is v4  
+[2019/09/21 17:00:46 185] transport  181  iplist not avail  
+[2019/09/21 17:00:46 185] transport  247  no iplist now  
+[2019/09/21 17:00:46 185] network    93   iptoenv ,  ipcache  dev.voicecloud.cn  def  42.62.116.34  
+[2019/09/21 17:00:46 188] transport  291  dns cb start conn  
+[2019/09/21 17:00:46 188] transport  1276 [soc] connect   42.62.116.34  80  
+[2019/09/21 17:00:46 189] transport  1293 mspsoc.open,prot_type=  tcp  
+[2019/09/21 17:00:46 207] network    328  connected  ns2  
+[2019/09/21 17:00:46 209] network    331  send ok  273  ns2  
+[2019/09/21 17:00:46 246] transport  476  [soc] [1] connected  
+[2019/09/21 17:00:46 248] transport  1333 build http request.  
+[2019/09/21 17:00:46 250] transport  1433 POST /msp.do HTTP/1.1
+Host: dev.voicecloud.cn
+Content-Type: multipart/mixed;boundary=--
+Content-Length: 324
+User-Agent: iFLYCloud
+Cache-Control: no-cache
+Accept: */*
+
+----
+CL:73
+CT:text/plain
+
+ver=MSSP+0%2E9&sub=auth&cmd=lgi&cver=5%2E0%2E35%2E1173&key=08QAvvCOCASW0=
+----
+CL:56
+CT:text/appinfo
+CE:gzip,encrypt/0.2
+
+pÙgˇ?\ÑòÅx{|~ÉÅy{{xÜyÑ  
+[2019/09/21 17:00:46 252] transport  1753 msg:release()  
+[2019/09/21 17:00:46 252] network    340  readable  ns2  
+[2019/09/21 17:00:46 252] network    344  HTTP/1.1 200 OK
+Date: Sat, 21 Sep 2019 09:00:46 GMT
+Content-Type: application/json
+Content-Length: 314
+Connection: keep-alive
+Server: iflytek/hdns
+
+{"dns":[{"host":"dev.voicecloud.cn","sip":[{"svc":"ath","ips":[{"ip":"42.62.116.35","port":80,"idc":"dx"},{"ip":"42.62.42.10","port":1028,"idc":"dx"}],"ttl":6000,"compel":0}]}],"default":[{"host":"dev.voicecloud.cn","sip":[{"svc":"ath","ips":[{"ip":"42.62.42.10","port":1028,"idc":"dx"}],"ttl":6000,"compel":0}]}]}  
+[2019/09/21 17:00:46 253] ns         256  name server http resp  table(14005fe0) 0  udata(14046d98) 
+[2019/09/21 17:00:46 253] ns         269  ns response OK for this time!  
+[2019/09/21 17:00:46 253] ns         280  from_server=  iflytek/hdns  
+[2019/09/21 17:00:46 255] ns         363  compel :  0  
+[2019/09/21 17:00:46 255] ns         374  tick()=  83473615  
+[2019/09/21 17:00:46 255] ns         378  tick()mod=  83473615  
+[2019/09/21 17:00:46 256] ns         379  ns_host=  dev.voicecloud.cn  
+[2019/09/21 17:00:46 256] ns         392  ns_host=  dev.voicecloud.cn  
+[2019/09/21 17:00:46 256] transport  1057 ns_ip =   42.62.116.35  
+[2019/09/21 17:00:46 256] transport  1058 ip_type =  assigned_athdev.voicecloud.cn_host  
+[2019/09/21 17:00:46 256] ns         658  no data in ns_q  
+[2019/09/21 17:00:46 256] ns         659  conti_ns,ns_inprog =   1  
+[2019/09/21 17:00:46 257] transport  506  [soc] [1] send ok  499  
+[2019/09/21 17:00:46 362] lgi        654  SYS_MSG_SHUTDOWN  
+============================================================
+Time  2019/09/21 17:04:14 002 
+============================================================
+[2019/09/21 17:04:14 002] lgi        684  SYS_MSG_LOAD  
+[2019/09/21 17:04:14 004] lgi        706  SYS_MSG_REGCB  msp_status_cb  func(500131e0) 
+[2019/09/21 17:04:14 005] lgi        298  LGI_MSG_INIT  
+[2019/09/21 17:04:14 005] lgi        305  lgi  lgi_  268436457  1552363844  
+[2019/09/21 17:04:14 005] lgi        347  work_dir  .  
+[2019/09/21 17:04:14 005] lgi        403  token:  nil  
+[2019/09/21 17:04:14 005] lgi        476  msc cver : 5.0.42.1226  
+[2019/09/21 17:04:14 005] lgi        519  ns_enable=  1  
+[2019/09/21 17:04:14 006] lgi        531  prot_ver=1  
+[2019/09/21 17:04:14 006] lgi        542  prot_type=tcp  
+[2019/09/21 17:04:14 006] lgi        693  SYS_MSG_UNLOAD  go bg!  
+[2019/09/21 17:04:15 773] lgi        598  LGI_MSG_START, caller =  cloud_cisr1P1HHBHjJxx5d6kTsaaHklu2halMdFq  
+[2019/09/21 17:04:15 773] lgi        604  lgistat =   0  
+[2019/09/21 17:04:15 773] lgi        630  lgi_auth_id =  nil  
+[2019/09/21 17:04:15 773] config     91   select default  
+[2019/09/21 17:04:15 773] config     113  use general cloud  
+[2019/09/21 17:04:15 773] transport  645  paramkvsport is   0  
+[2019/09/21 17:04:15 774] transport  657  ns_enable=  1  
+[2019/09/21 17:04:15 774] transport  659  2017-08--24 is_ns_need_close =   nil  
+[2019/09/21 17:04:15 774] transport  665  net.nettype=  unknown  
+[2019/09/21 17:04:15 774] transport  675  url.full=  nil  
+[2019/09/21 17:04:15 774] transport  680  server_url_host=, server_url_port=, server_url_path=  dev.voicecloud.cn  nil  /msp.do  
+[2019/09/21 17:04:15 774] transport  907  net type:  unknown  
+[2019/09/21 17:04:15 774] transport  908  net operator:  def  
+[2019/09/21 17:04:15 774] transport  909  use proxy:  false  
+[2019/09/21 17:04:15 774] lgi        277  [session] send lgi request  
+[2019/09/21 17:04:15 775] transport  1105 session.domain=  dev.voicecloud.cn  
+[2019/09/21 17:04:15 775] transport  1106 url.host=  dev.voicecloud.cn  
+[2019/09/21 17:04:15 775] transport  1083 NAMESERVER START  
+[2019/09/21 17:04:15 775] transport  1086 name =   ath  
+[2019/09/21 17:04:15 775] ns         634  ntt=  unknown  
+[2019/09/21 17:04:15 775] transport  1089 trans,ns_inprog =  0  
+[2019/09/21 17:04:15 775] ns         582  name server start  
+[2019/09/21 17:04:15 775] ns         588  ns_sub =   ath  
+[2019/09/21 17:04:15 775] ns         596  ns_host =   dev.voicecloud.cn  
+[2019/09/21 17:04:15 775] ns         475  ns_host=  dev.voicecloud.cn  
+[2019/09/21 17:04:15 776] ns         555  net_type =  standard  
+[2019/09/21 17:04:15 776] ns         556  cmwapascmnet =  
+[2019/09/21 17:04:15 776] ns         557  uniwapasuninet =  
+[2019/09/21 17:04:15 777] ns         558  ctwapasctnet =  
+[2019/09/21 17:04:15 777] ns         576  host=  hdns.xf-yun.com  
+[2019/09/21 17:04:15 777] network    263  gethostbyname  hdns.xf-yun.com  ns1  
+[2019/09/21 17:04:15 778] lgi        244  lver:  nil  
+[2019/09/21 17:04:15 778] lgi        249  cfg_ver:  nil  
+[2019/09/21 17:04:15 778] transport  1860 transport_obj.send | in  
+[2019/09/21 17:04:15 778] transport  1866 self.msg_flag_q  table(50023b60) 
+[2019/09/21 17:04:15 778] transport  1867 self.msg_q  table(50043c60) 
+[2019/09/21 17:04:15 778] transport  1799 transport_obj.try2send | in  
+[2019/09/21 17:04:15 778] transport  1800 self.soc  nil  
+[2019/09/21 17:04:15 778] transport  1801 self.connected  false  
+[2019/09/21 17:04:15 779] transport  1802 self.latesterr  0  
+[2019/09/21 17:04:15 779] transport  1873 transport_obj.send | out  
+[2019/09/21 17:04:15 789] network    245  dns resp  0  ns1  
+[2019/09/21 17:04:15 789] ns         422  ns dns ok  42.62.116.35  
+[2019/09/21 17:04:15 790] ns         202  iplist not avail  
+[2019/09/21 17:04:15 790] ns         429  is_voicecloud_ip=  0  
+[2019/09/21 17:04:15 791] ns         436  ip_is_expected=  true  
+[2019/09/21 17:04:15 791] ns         444  ip_is_expected=  true  
+[2019/09/21 17:04:15 791] network    445  gethttpresp2  42.62.116.35  80  ns2  
+[2019/09/21 17:04:15 791] network    465  prot_type  tcp  
+[2019/09/21 17:04:15 800] transport  194  [dns] [1] response 42.62.116.18  
+[2019/09/21 17:04:15 801] transport  202  42  62  116  18  
+[2019/09/21 17:04:15 801] transport  204  ipv =  v4  
+[2019/09/21 17:04:15 801] transport  208  dns ip is v4  
+[2019/09/21 17:04:15 801] transport  130  iplist not avail  
+[2019/09/21 17:04:15 801] transport  247  no iplist now  
+[2019/09/21 17:04:15 801] network    95   iptoenv ,  ipcache  dev.voicecloud.cn  def  42.62.116.18  
+[2019/09/21 17:04:15 804] transport  291  dns cb start conn  
+[2019/09/21 17:04:15 804] transport  1304 [soc] connect   42.62.116.18  1028  
+[2019/09/21 17:04:15 804] transport  1316 mspsoc.open,prot_type=  tcp  
+[2019/09/21 17:04:15 821] network    350  connected  ns2  
+[2019/09/21 17:04:15 823] network    353  send ok  270  ns2  
+[2019/09/21 17:04:15 851] transport  473  [soc] [1] connected  
+[2019/09/21 17:04:15 851] transport  1799 transport_obj.try2send | in  
+[2019/09/21 17:04:15 851] transport  1800 self.soc  udata(5004b018) 
+[2019/09/21 17:04:15 852] transport  1801 self.connected  true  
+[2019/09/21 17:04:15 852] transport  1802 self.latesterr  0  
+[2019/09/21 17:04:15 852] transport  1819 transport:try2send,#msg_q=  1  
+[2019/09/21 17:04:15 853] transport  1359 build http request.  
+[2019/09/21 17:04:15 853] transport  1476 POST /msp.do HTTP/1.1
+X-Sub: auth
+X-Par: ver=MSSP+0%2E9&sub=auth&cmd=lgi&cver=5%2E0%2E42%2E1226&key=08QAvvCOCASW0=
+Host: dev.voicecloud.cn
+CT: multipart/mixed;boundary=--
+CL: 331
+
+----
+Content-Length:56
+Content-Type:text/appinfo
+Content-Encoding:gzip,encrypt/0.2
+
+pÙgˇ?\ÑòÅ  
+[2019/09/21 17:04:15 856] transport  1819 transport:try2send,#msg_q=  0  
+[2019/09/21 17:04:15 856] transport  482  [soc] [1] send ok  518  
+[2019/09/21 17:04:15 856] transport  1799 transport_obj.try2send | in  
+[2019/09/21 17:04:15 856] transport  1800 self.soc  udata(5004b018) 
+[2019/09/21 17:04:15 857] transport  1801 self.connected  true  
+[2019/09/21 17:04:15 857] transport  1802 self.latesterr  0  
+[2019/09/21 17:04:15 857] transport  1819 transport:try2send,#msg_q=  0  
+[2019/09/21 17:04:15 865] network    362  readable  ns2  
+[2019/09/21 17:04:15 866] network    366  HTTP/1.1 200 OK
+Date: Sat, 21 Sep 2019 09:04:15 GMT
+Content-Type: application/json
+Content-Length: 312
+Connection: keep-alive
+Server: iflytek/hdns
+
+{"dns":[{"host":"dev.voicecloud.cn","sip":[{"svc":"ath","ips":[{"ip":"42.62.116.18","port":80,"idc":"dx"},{"ip":"42.62.116.34","port":80,"idc":"dx"}],"ttl":6000,"compel":0}]}],"default":[{"host":"dev.voicecloud.cn","sip":[{"svc":"ath","ips":[{"ip":"42.62.116.34","port":80,"idc":"dx"}],"ttl":6000,"compel":0}]}]}  
+[2019/09/21 17:04:15 866] ns         253  name server http resp  0  
+[2019/09/21 17:04:15 867] ns         266  ns response OK for this time!  
+[2019/09/21 17:04:15 867] ns         277  from_server=  iflytek/hdns  
+[2019/09/21 17:04:15 868] ns         360  compel :  0  
+[2019/09/21 17:04:15 869] transport  1063 ns_ip =   42.62.116.18  
+[2019/09/21 17:04:15 870] transport  1064 ip_type =  assigned_athdev.voicecloud.cn_host  
+[2019/09/21 17:04:15 870] ns         670  no data in ns_q  
+[2019/09/21 17:04:15 870] ns         671  conti_ns,ns_inprog =   1  
+[2019/09/21 17:04:20 696] lgi        697  SYS_MSG_SHUTDOWN  
+============================================================
+Time  2019/09/21 17:04:41 188 
+============================================================
+[2019/09/21 17:04:41 188] lgi        684  SYS_MSG_LOAD  
+[2019/09/21 17:04:41 189] lgi        706  SYS_MSG_REGCB  msp_status_cb  func(e80131e0) 
+[2019/09/21 17:04:41 190] lgi        298  LGI_MSG_INIT  
+[2019/09/21 17:04:41 190] lgi        305  lgi  lgi_  268436457  1552363844  
+[2019/09/21 17:04:41 190] lgi        347  work_dir  .  
+[2019/09/21 17:04:41 190] lgi        403  token:  nil  
+[2019/09/21 17:04:41 190] lgi        476  msc cver : 5.0.42.1226  
+[2019/09/21 17:04:41 190] lgi        519  ns_enable=  1  
+[2019/09/21 17:04:41 190] lgi        531  prot_ver=1  
+[2019/09/21 17:04:41 190] lgi        542  prot_type=tcp  
+[2019/09/21 17:04:41 191] lgi        693  SYS_MSG_UNLOAD  go bg!  
+[2019/09/21 17:04:44 061] lgi        598  LGI_MSG_START, caller =  cloud_cisr1P1HHBHjJxx+d6-b9aam9UBmslBEwkN  
+[2019/09/21 17:04:44 061] lgi        604  lgistat =   0  
+[2019/09/21 17:04:44 061] lgi        630  lgi_auth_id =  nil  
+[2019/09/21 17:04:44 061] config     91   select default  
+[2019/09/21 17:04:44 061] config     113  use general cloud  
+[2019/09/21 17:04:44 061] transport  645  paramkvsport is   0  
+[2019/09/21 17:04:44 062] transport  657  ns_enable=  1  
+[2019/09/21 17:04:44 062] transport  659  2017-08--24 is_ns_need_close =   nil  
+[2019/09/21 17:04:44 062] transport  665  net.nettype=  unknown  
+[2019/09/21 17:04:44 062] transport  675  url.full=  nil  
+[2019/09/21 17:04:44 062] transport  680  server_url_host=, server_url_port=, server_url_path=  dev.voicecloud.cn  nil  /msp.do  
+[2019/09/21 17:04:44 062] transport  907  net type:  unknown  
+[2019/09/21 17:04:44 062] transport  908  net operator:  def  
+[2019/09/21 17:04:44 062] transport  909  use proxy:  false  
+[2019/09/21 17:04:44 062] lgi        277  [session] send lgi request  
+[2019/09/21 17:04:44 062] transport  1105 session.domain=  dev.voicecloud.cn  
+[2019/09/21 17:04:44 062] transport  1106 url.host=  dev.voicecloud.cn  
+[2019/09/21 17:04:44 062] transport  1083 NAMESERVER START  
+[2019/09/21 17:04:44 062] transport  1086 name =   ath  
+[2019/09/21 17:04:44 062] ns         634  ntt=  unknown  
+[2019/09/21 17:04:44 062] transport  1089 trans,ns_inprog =  0  
+[2019/09/21 17:04:44 062] ns         582  name server start  
+[2019/09/21 17:04:44 062] ns         588  ns_sub =   ath  
+[2019/09/21 17:04:44 062] ns         596  ns_host =   dev.voicecloud.cn  
+[2019/09/21 17:04:44 062] ns         475  ns_host=  dev.voicecloud.cn  
+[2019/09/21 17:04:44 062] ns         555  net_type =  standard  
+[2019/09/21 17:04:44 062] ns         556  cmwapascmnet =  
+[2019/09/21 17:04:44 062] ns         557  uniwapasuninet =  
+[2019/09/21 17:04:44 062] ns         558  ctwapasctnet =  
+[2019/09/21 17:04:44 062] ns         576  host=  hdns.xf-yun.com  
+[2019/09/21 17:04:44 062] network    263  gethostbyname  hdns.xf-yun.com  ns1  
+[2019/09/21 17:04:44 062] lgi        244  lver:  nil  
+[2019/09/21 17:04:44 062] lgi        249  cfg_ver:  nil  
+[2019/09/21 17:04:44 062] transport  1860 transport_obj.send | in  
+[2019/09/21 17:04:44 062] transport  1866 self.msg_flag_q  table(e8023b60) 
+[2019/09/21 17:04:44 062] transport  1867 self.msg_q  table(e8043c70) 
+[2019/09/21 17:04:44 062] transport  1799 transport_obj.try2send | in  
+[2019/09/21 17:04:44 062] transport  1800 self.soc  nil  
+[2019/09/21 17:04:44 062] transport  1801 self.connected  false  
+[2019/09/21 17:04:44 062] transport  1802 self.latesterr  0  
+[2019/09/21 17:04:44 063] transport  1873 transport_obj.send | out  
+[2019/09/21 17:04:44 063] network    245  dns resp  0  ns1  
+[2019/09/21 17:04:44 063] ns         422  ns dns ok  42.62.116.35  
+[2019/09/21 17:04:44 063] ns         202  iplist not avail  
+[2019/09/21 17:04:44 063] ns         429  is_voicecloud_ip=  0  
+[2019/09/21 17:04:44 063] ns         436  ip_is_expected=  true  
+[2019/09/21 17:04:44 063] ns         444  ip_is_expected=  true  
+[2019/09/21 17:04:44 063] network    445  gethttpresp2  42.62.116.35  80  ns2  
+[2019/09/21 17:04:44 063] network    465  prot_type  tcp  
+[2019/09/21 17:04:44 064] transport  194  [dns] [1] response 42.62.116.18  
+[2019/09/21 17:04:44 064] transport  202  42  62  116  18  
+[2019/09/21 17:04:44 064] transport  204  ipv =  v4  
+[2019/09/21 17:04:44 064] transport  208  dns ip is v4  
+[2019/09/21 17:04:44 064] transport  130  iplist not avail  
+[2019/09/21 17:04:44 064] transport  247  no iplist now  
+[2019/09/21 17:04:44 064] network    95   iptoenv ,  ipcache  dev.voicecloud.cn  def  42.62.116.18  
+[2019/09/21 17:04:44 064] transport  291  dns cb start conn  
+[2019/09/21 17:04:44 064] transport  1304 [soc] connect   42.62.116.18  1028  
+[2019/09/21 17:04:44 065] transport  1316 mspsoc.open,prot_type=  tcp  
+[2019/09/21 17:04:44 094] network    350  connected  ns2  
+[2019/09/21 17:04:44 094] network    353  send ok  270  ns2  
+[2019/09/21 17:04:44 127] transport  473  [soc] [1] connected  
+[2019/09/21 17:04:44 129] transport  1799 transport_obj.try2send | in  
+[2019/09/21 17:04:44 129] transport  1800 self.soc  udata(e8062fd8) 
+[2019/09/21 17:04:44 130] transport  1801 self.connected  true  
+[2019/09/21 17:04:44 130] transport  1802 self.latesterr  0  
+[2019/09/21 17:04:44 130] transport  1819 transport:try2send,#msg_q=  1  
+[2019/09/21 17:04:44 130] transport  1359 build http request.  
+[2019/09/21 17:04:44 131] transport  1476 POST /msp.do HTTP/1.1
+X-Sub: auth
+X-Par: ver=MSSP+0%2E9&sub=auth&cmd=lgi&cver=5%2E0%2E42%2E1226&key=08QAvvCOCASW0=
+Host: dev.voicecloud.cn
+CT: multipart/mixed;boundary=--
+CL: 331
+
+----
+Content-Length:56
+Content-Type:text/appinfo
+Content-Encoding:gzip,encrypt/0.2
+
+pÙgˇ?\ÑòÅ  
+[2019/09/21 17:04:44 134] transport  1819 transport:try2send,#msg_q=  0  
+[2019/09/21 17:04:44 134] network    362  readable  ns2  
+[2019/09/21 17:04:44 135] network    366  HTTP/1.1 200 OK
+Date: Sat, 21 Sep 2019 09:04:44 GMT
+Content-Type: application/json
+Content-Length: 311
+Connection: keep-alive
+Server: iflytek/hdns
+
+{"dns":[{"host":"dev.voicecloud.cn","sip":[{"svc":"ath","ips":[{"ip":"42.62.42.10","port":1028,"idc":"dx"},{"ip":"42.62.42.18","port":80,"idc":"dx"}],"ttl":6000,"compel":0}]}],"default":[{"host":"dev.voicecloud.cn","sip":[{"svc":"ath","ips":[{"ip":"42.62.42.18","port":80,"idc":"dx"}],"ttl":6000,"compel":0}]}]}  
+[2019/09/21 17:04:44 135] ns         253  name server http resp  0  
+[2019/09/21 17:04:44 135] ns         266  ns response OK for this time!  
+[2019/09/21 17:04:44 136] ns         277  from_server=  iflytek/hdns  
+[2019/09/21 17:04:44 137] ns         360  compel :  0  
+[2019/09/21 17:04:44 138] transport  1063 ns_ip =   42.62.42.10  
+[2019/09/21 17:04:44 139] transport  1064 ip_type =  assigned_athdev.voicecloud.cn_host  
+[2019/09/21 17:04:44 139] ns         670  no data in ns_q  
+[2019/09/21 17:04:44 139] ns         671  conti_ns,ns_inprog =   1  
+[2019/09/21 17:04:44 140] transport  482  [soc] [1] send ok  518  
+[2019/09/21 17:04:44 140] transport  1799 transport_obj.try2send | in  
+[2019/09/21 17:04:44 140] transport  1800 self.soc  udata(e8062fd8) 
+[2019/09/21 17:04:44 140] transport  1801 self.connected  true  
+[2019/09/21 17:04:44 140] transport  1802 self.latesterr  0  
+[2019/09/21 17:04:44 141] transport  1819 transport:try2send,#msg_q=  0  
+[2019/09/21 17:04:46 577] transport  494  [soc] [1] readable  
+[2019/09/21 17:04:46 578] transport  1767 HTTP/1.1 200 OK
+Content-Length: 1
+X-Req-Date: 2019/09/21 17:04:44 143
+X-Par: ver=MSSP+0%2E9&ret=0&cver=5%2E0%2E42%2E1226&key=09SSJDSMjX5/nmLklW8b0kh5N2lmABMZMqRFwAXx0eb7RzMTX6RBVnAQ==
+CT: text/plain
+CL: 1
+Content-Length: 1
+X-Res-Date: 2019/09/21 17:04:46 551
+
+0  
+[2019/09/21 17:04:46 579] transport  1494 a_complete_httpmessage  200  
+[2019/09/21 17:04:46 579] transport  1604 is_update  false  
+[2019/09/21 17:04:46 580] lgi        105  [trans] [id = lgi_] readable  
+[2019/09/21 17:04:46 581] network    90   ipfromenv ,  ipcache  dev.voicecloud.cn  def  42.62.116.18  
+[2019/09/21 17:04:46 581] transport  981  cached ip is confirmed  
+[2019/09/21 17:04:46 581] transport  1332 [soc] disconnect   
+[2019/09/21 17:04:46 582] transport  991  transport clean  
+[2019/09/21 17:04:46 582] lgi        136  lgi resp!  
+[2019/09/21 17:04:46 582] lgi        138  loginid = nil  

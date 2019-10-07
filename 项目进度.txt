@@ -1,0 +1,71 @@
+
+*1. demo_iat_tts: 实现效果->麦克录入语音(固定时长可调节)随即语音识别后输出识别结果的文本信息，同时语音合成功能再将文本信息转换为.wav语音格式。
+
+*2. demo_aiui: 语义分析，自然语言交互     /* /home/kevin/iFlytek/demo_aiui_iat_tts/samples/aiui_sample/build/AIUI/cfg vad路径修改！ */
+				         /* /home/kevin/iFlytek/demo_aiui_iat_tts/samples/aiui_sample/build/AIUI/cfg main_box */
+
+*   play -t raw -r 9600 -e signed -b 16 -c 2 tts.pcm
+
+    |———————————————————————————
+    | 应用： @张江人工智能餐厅    
+    | 技能： @语音点餐
+    | 意图： @鸡尾酒、热/冰、几份
+    | 语料： @我想要一杯热的拿铁 
+    |———————————————————————————
+		
+
+/**
+* ROS节点间topic通信成功，dataTransfer节点通过写FIFO将数据转发给iFlytek语音处理程序
+*
+**/
+
+
+
+*技能开发步骤：
+
+	画流程图： 用户可能发出的请求(抽象成意图)->请求可能的结果
+	创建技能： 私有技能for AIUI
+	完善技能的交互模型： 入口——>对话，完善语料、定义语义槽{CupNumSlot}{TempSlot}{DrinkNameSlot} ——> 实现语义理解
+	使用代码进行技能逻辑处理： 
+	测试技能
+	发布技能
+
+
+*接入方式：
+	 SDK、HTTP、硬件接入
+
+
+
+*收到唤醒信号后，语音提示/引导顾客开始点餐(技能入口)
+
+*收到顾客完下单信息后，需进行意图确认(默认槽位填满之后才会进行意图确认)
+
+*意图确认之后，将不能重复进入该意图
+
+
+？技能后处理： NodeJS V9.10.1
+
+当前页面配置修改仅在测试环境生效，设备端体验需要SDK传参时在情景模式后加“_box”或“更新发布”至生产环境体验。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+修改AIUI配置文件中的data_source字段可以指定AIUI录音来源，值为sdk时使用AIUI内部录音，使用CMD_START_RECORD、CMD_STOP_RECORD命令进行控制。另一取值user，表示由外部写入录音数据，使用CMD_WRITE、CMD_STOP_WRITE命令通知AIUI数据写入和写入结束。
+
+
+
+
