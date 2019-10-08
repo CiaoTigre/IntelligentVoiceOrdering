@@ -380,7 +380,6 @@ int text_to_speech(const char* src_text, const char* des_path, const char* param
 		QTTSSessionEnd(sessionID, "AudioGetError");
 		fclose(fp);
 		return ret;
-
 	}
 	/* 修正wav文件头数据的大小 */
 	wav_hdr.size_8 += wav_hdr.data_size + (sizeof(wav_hdr) - 8);
@@ -489,8 +488,9 @@ int SpeechSynthesis(const char* string)
 	 * sample_rate:   合成音频采样率
 	 * text_encoding: 合成文本编码格式
 	 * */
-	const char* session_begin_params_tts = "voice_name = aisxping, text_encoding = utf8, sample_rate = 16000, speed = 50, volume = 50, pitch = 50, rdn = 2";
-	
+
+	const char* session_begin_params_tts = "engine_type = cloud,voice_name=xiaoyan, text_encoding = UTF8, tts_res_path = fo|/home/kevin/intelligentvoiceordering/demo_aiui_iat_tts_test/bin/msc/res/tts/xiaoyan.jet;fo|/home/kevin/intelligentvoiceordering/demo_aiui_iat_tts_test/bin/msc/res/tts/common.jet, sample_rate = 16000, speed = 50, volume = 50, pitch = 50, rdn = 2";
+	// const char* session_begin_params_tts = "voice_name = aisxping, text_encoding = utf8, sample_rate = 16000, speed = 50, volume = 50, pitch = 50, rdn = 2";
 	const char* filename                     = "demo.wav"; //合成的语音文件路径及名称
 	//const char* text                 = "亲爱的甘坤您好，感谢您对讯飞语音云技术技术的支持。"; //合成文本
 

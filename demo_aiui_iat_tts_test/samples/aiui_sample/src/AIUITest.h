@@ -22,7 +22,7 @@
 #define TEST_ROOT_DIR "./AIUI/"
 
 //配置文件打的路径，里面是客户端设置的参数
-#define CFG_FILE_PATH "./build/AIUI/cfg/aiui.cfg"
+#define CFG_FILE_PATH "/home/kevin/intelligentvoiceordering/demo_aiui_iat_tts_test/samples/aiui_sample/build/AIUI/cfg/aiui.cfg"
 
 //测试音频的路径
 #define TEST_AUDIO_PATH "./build/AIUI/audio/tts_sample.wav"

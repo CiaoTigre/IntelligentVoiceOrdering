@@ -18,20 +18,20 @@
 typedef struct _wave_pcm_hdr
 {
 	char            riff[4];                // = "RIFF"
-	int		size_8;                 // = FileSize - 8
+	int				size_8;                 // = FileSize - 8
 	char            wave[4];                // = "WAVE"
 	char            fmt[4];                 // = "fmt "
-	int		fmt_size;		// = 下一个结构体的大小 : 16
+	int				fmt_size;				// = 下一个结构体的大小 : 16
 
 	short int       format_tag;             // = PCM : 1
 	short int       channels;               // = 通道数 : 1
-	int		samples_per_sec;        // = 采样率 : 8000 | 6000 | 11025 | 16000
-	int		avg_bytes_per_sec;      // = 每秒字节数 : samples_per_sec * bits_per_sample / 8
+	int				samples_per_sec;        // = 采样率 : 8000 | 6000 | 11025 | 16000
+	int				avg_bytes_per_sec;      // = 每秒字节数 : samples_per_sec * bits_per_sample / 8
 	short int       block_align;            // = 每采样点字节数 : wBitsPerSample / 8
 	short int       bits_per_sample;        // = 量化比特数: 8 | 16
 
 	char            data[4];                // = "data";
-	int		data_size;              // = 纯数据长度 : FileSize - 44 
+	int				data_size;              // = 纯数据长度 : FileSize - 44 
 } wave_pcm_hdr;
 
 /* 默认wav音频头部数据 */
@@ -150,8 +150,8 @@ int main(int argc, char* argv[])
 	*
 	*/
 	const char* session_begin_params = "voice_name = xiaoyan, text_encoding = utf8, sample_rate = 16000, speed = 50, volume = 50, pitch = 50, rdn = 2";
-	const char* filename             = "demo_tts.wav"; //合成的语音文件名称
-	const char* text                 = "亲爱的甘坤您好，感谢您对讯飞语音云技术技术的支持。"; //合成文本
+	const char* filename             = "tts.wav"; //合成的语音文件名称
+	const char* text                 = "感谢您对讯飞语音云技术技术的支持。"; //合成文本
 
 	/* 用户登录 */
 	ret = MSPLogin(NULL, NULL, login_params);//第一个参数是用户名，第二个参数是密码，第三个参数是登录参数，用户名和密码可在http://www.xfyun.cn注册获取
