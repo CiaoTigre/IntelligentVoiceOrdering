@@ -1,7 +1,7 @@
 
 
 AIUI.create("v2.1",  async function(aiui,  err){
-	var Num = Math.ceil(Math.random()*10);
+    var Num = Math.ceil(Math.random()*10);
     var requestObject = aiui.getRequest().getObject();
     var response = aiui.getResponse();
     var updatedIntent = aiui.getUpdatedIntent();
@@ -20,61 +20,53 @@ AIUI.create("v2.1",  async function(aiui,  err){
         console.log("本次意图来自:" + intentName);
         switch(intentName){
 
-			case 'StartSkill':
+            case 'StartSkill':
 
-				response.setOutputSpeech("已进入点餐技能，请吩咐！");
-				break;
-				
+                response.setOutputSpeech(">>>Entry: Do Nothing！");
+                break;
+                
             case 'OrderProcess':
                 //获取当前对话的填槽状态
                 var dialogState= requestObject.request.dialogState;
                 //判断填槽状态是否已完成
                 if(dialogState != null && dialogState != "COMPLETED") {
-					//系统默认按照开发者在平台填写的信息进行追问反问－>托管
-					// response.addDelegateDirective();
-					var DrinkName = updatedIntent.getSlotValue('DrinkNameSlot');
-					var CupNum = updatedIntent.getSlotValue('CupNumSlot');
-					var Temp = updatedIntent.getSlotValue('TempSlot');
+                    //系统默认按照开发者在平台填写的信息进行追问反问－>托管
+                    // response.addDelegateDirective();
+                    var DrinkName = updatedIntent.getSlotValue('DrinkNameSlot');
+                    var CupNum = updatedIntent.getSlotValue('CupNumSlot');
+                    var Temp = updatedIntent.getSlotValue('TempSlot');
 
-					if (DrinkName == null){
-						response.addElicitSlotDirective("DrinkNameSlot");
-       					response.setOutputSpeech(">>>请问你要喝什么饮品呢？");
+                    // if (DrinkName == null){
+                    //  response.addElicitSlotDirective("DrinkNameSlot");
+                    //  response.setOutputSpeech(">>>请问你要喝什么饮品呢？");
 
-					}
-					if (CupNum == null){
-						response.addElicitSlotDirective("CupNumSlot");
-       					response.setOutputSpeech(">>>可以告诉我您要几份吗？");
-						
-					}
-					if (Temp == null){
-						response.addElicitSlotDirective("TempSlot");
-       					response.setOutputSpeech(">>>你喜欢热的还是凉的呢？");
-						
-					}
+                    // }
+                    // else if (CupNum == null){
+                    //  response.addElicitSlotDirective("CupNumSlot");
+                    //  response.setOutputSpeech(">>>可以告诉我您要几份吗？");
+                        
+                    // }
+                    // else if (Temp == null){
+                    //  response.addElicitSlotDirective("TempSlot");
+                    //  response.setOutputSpeech(">>>你喜欢热的还是凉的呢？");
+                        
+                    // }
+                    response.setOutputSpeech(">>>Process: Do Nothing！");
 
                 }else{ 
-					var DrinkName = updatedIntent.getSlotValue('DrinkNameSlot');
-					var CupNum = updatedIntent.getSlotValue('CupNumSlot');
-					var Temp = updatedIntent.getSlotValue('TempSlot');
+                    var DrinkName = updatedIntent.getSlotValue('DrinkNameSlot');
+                    var CupNum = updatedIntent.getSlotValue('CupNumSlot');
+                    var Temp = updatedIntent.getSlotValue('TempSlot');
 
-					switch(Num%3){
-				
-						case 0:
-							response.setOutputSpeech('>>>您确定是要' + CupNum + Temp + DrinkName + '这样吗？');
-							break;
-						case 1:
-							response.setOutputSpeech('>>>确认是' + CupNum + Temp + DrinkName + '吗？'); 
-							break;
-						case 2:
-							response.setOutputSpeech( '>>>是' +　CupNum + Temp + DrinkName + '对吗？');
-							break;
-					}
-					
+                    response.setOutputSpeech(">>>Process: Do Nothing！");
+                
+                    
                 }
                 break;
             
             case 'EndSignal':
-                response.setOutputSpeech(">>>好的，立刻为您下单！");  
+                response.setOutputSpeech(">>>EndSignal: Do Nothing！");  
+                response.withShouldEndSession(true);
                 break;   
 
             default:
