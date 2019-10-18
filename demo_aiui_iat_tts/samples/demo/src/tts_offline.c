@@ -140,7 +140,7 @@ int text_to_speech(const char* src_text, const char* des_path, const char* param
 	return ret;
 }
 
-int SpeechSynthesis(const char* string)
+int SpeechSynthesis(const char* text2speech)
 {
 	int         ret                  = MSP_SUCCESS;
 	const char* login_params         = "appid = 5d6e777f, work_dir = .";//登录参数,appid与msc库绑定,请勿随意改动
@@ -154,7 +154,7 @@ int SpeechSynthesis(const char* string)
 	* text_encoding: 合成文本编码格式
 	*
 	*/
-	const char* session_begin_params = "engine_type = cloud,voice_name=xiaofeng, text_encoding = UTF8, tts_res_path = fo|/home/kevin/intelligentvoiceordering/demo_aiui_iat_tts_test2/bin/msc/res/tts/xiaofeng.jet;fo|/home/kevin/intelligentvoiceordering/demo_aiui_iat_tts_test2/bin/msc/res/tts/common.jet, sample_rate = 16000, speed = 50, volume = 50, pitch = 50, rdn = 2";	
+	const char* session_begin_params = "engine_type = cloud,voice_name=xiaofeng, text_encoding = UTF8, tts_res_path = fo|/home/kevin/intelligentvoiceordering/demo_aiui_iat_tts/bin/msc/res/tts/xiaofeng.jet;fo|/home/kevin/intelligentvoiceordering/demo_aiui_iat_tts/bin/msc/res/tts/common.jet, sample_rate = 16000, speed = 77, volume = 50, pitch = 50, rdn = 2";	
 	const char* filename             = "demo.wav"; //合成的语音文件名称
 	const char* text                 = "亲爱的用户，您好，这是一个语音合成示例，感谢您对科大讯飞语音技术的支持！科大讯飞是亚太地区最大的语音上市公司，股票代码：002230亲爱的用户，您好，这是一个语音合成示例，感谢您对科大讯飞语音技术的支持！科大讯飞是亚太地区最大的语音上市公司，股票代码：002230"; //合成文本
 	
@@ -175,7 +175,7 @@ int SpeechSynthesis(const char* string)
 	* The following is the speech synthesis code.
 	*/
 	printf("\n【...3# SYNTHESIS PROCESS...】\n");
-	ret = text_to_speech(string, filename, session_begin_params);
+	ret = text_to_speech(text2speech, filename, session_begin_params);
 	if (MSP_SUCCESS != ret)
 	{
 		printf("text_to_speech failed, error code: %d.\n", ret);

@@ -1,5 +1,5 @@
 
-*1. demo_iat_tts: 实现效果->麦克录入语音(固定时长可调节)随即语音识别后输出识别结果的文本信息，同时语音合成功能再将文本信息转换为.wav语音格式。
+*1. demo_iat_tts:
 
 *2. demo_aiui: 语义分析，自然语言交互     /* /home/kevin/iFlytek/demo_aiui_iat_tts/samples/aiui_sample/build/AIUI/cfg vad路径修改！ */
 				         /* /home/kevin/iFlytek/demo_aiui_iat_tts/samples/aiui_sample/build/AIUI/cfg main_box */
@@ -15,8 +15,9 @@
 		
 
 /**
-* ROS节点间topic通信成功，dataTransfer节点通过写FIFO将数据转发给iFlytek语音处理程序
+* ROS NODE:dataTrasnfer, connecting iFlytek & ros_node & Core & frontEnd
 *
+* iFlytek <==FIFO==> 'dataTransfer' ==FIFO==> frontEnd
 **/
 
 

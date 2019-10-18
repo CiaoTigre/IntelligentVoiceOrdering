@@ -29,7 +29,8 @@ int playSound(const char* filepath)
     cout << "Start playing: /" << filepath << endl;
     FILE *fp = fopen(filepath, "rb");
     if(fp == NULL)
-    	return 0;
+        FILE *fp = fopen(filepath, "rb");
+    	// return 0;   ///??????????????????????????????
     fseek(fp, 100, SEEK_SET);
 
     //1. 打开PCM，最后一个参数为0意味着标准配置
@@ -81,7 +82,7 @@ int playSound(const char* filepath)
     }
 
     /* Set period size to 32 frames. */
-    frames = 32;
+    frames = 64;
     periodsize = frames ;
     ret = snd_pcm_hw_params_set_buffer_size_near(playback_handle, hw_params, &periodsize);
     if (ret < 0)
@@ -113,19 +114,23 @@ int playSound(const char* filepath)
     //         "size = %d\n",
     //         size);
 
+    // int num;
+
+    // cin >> num;
+
     while (1)
     {
         ret = fread(buffer, 1, size, fp);
         if(ret == 0)
         {
-              // fprintf(stderr, "end of file on input\n");
+              fprintf(stderr, "end of file on input\n");
               break;
         }
         else if (ret != size)
         {
         }
         //9. 写音频数据到PCM设备
-        while(ret = snd_pcm_writei(playback_handle, buffer, frames)<0)
+        while((ret = snd_pcm_writei(playback_handle, buffer, frames))<0)
         {
             usleep(2000);
             if (ret == -EPIPE)
