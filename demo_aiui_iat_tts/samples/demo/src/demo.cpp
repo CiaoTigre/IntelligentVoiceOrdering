@@ -35,20 +35,20 @@ using namespace aiui;
 /* extracted from resultChar */
 extern string ExtractResult;   
 extern bool AIUI_Done;
-extern bool OrderFinish;
+// extern bool OrderFinish;
 
 /* type of answer by AIUI*/
 extern ANSWER_TYPE AnswerType;
 
 /* audio file path to be played, depends on the setting of SpeechSynthesis() */
 const char* wavpath = "demo.wav";  
-
-const char* Greeting              = "您好，欢迎来到智能吧台，我是大眼睛服务机器人，我将根据您的特征信息推荐一些适合您的饮品，待会您可在平板上查看推荐选项，决定后直接告诉我即可！";
+const char* Greeting              = "您好!请点单！";
+// const char* Greeting              = "您好，欢迎来到智能吧台，我是大眼睛服务机器人，我将根据您的特征信息推荐一些适合您的饮品，待会您可在平板上查看推荐选项，决定后直接告诉我即可！";
 const char* gender[2]             = {"先生",
 									 "女士"};
 
 
-const char* Response_2_noAnswer   = "不好意思，可以告诉我想喝什么吗？";
+const char* Response_2_noAnswer   = "不好意思，？"; //根据槽值追问吧？已修正！
 const char* Response_2_noSound[]  = {"可以说大声一些吗？我好像没有听见你说话。",
 									 "朋友，你有在说话吗？",			
 									 "一点声音都听不见呀",	
@@ -70,7 +70,16 @@ MsgToROS msgToROS;
 /*AIUI Agent*/
 AIUITester  KEVIN;
 
-void MsgFromROS::extractJsonFromROS(const char* key, char* json, char* dest){
+
+/****** msgFromROS Json format **********
+*	{
+*	  "command":"idle",
+*	  "name":"甘坤",
+*	  "gender":"male",
+*	  "age":"23",
+*	}
+*****************************************/
+void MsgFromROS::extract_Json(const char* key, char* json, char* dest){
 
 	char* start = NULL;
 	char* end   = NULL;
@@ -87,25 +96,35 @@ void MsgFromROS::extractJsonFromROS(const char* key, char* json, char* dest){
 }
 
 
-void MsgToROS::generateJsonToROS(char* name, char* emotion, bool OrderFinish, char* json){
+/******* msgToROS Json format *********
+*	{
+*	  "name":"甘坤",
+*	  "emotion":"puzzled",
+*     "greetingDone":"false",
+*	  "speechRecoResult":"null",
+*	  "OrderInfo":
+*	   {
+*	 	 "DrinkName":"null",
+*	 	 "CupNum":"null",
+*	 	 "CupType":"null",
+*	 	 "Temp":"null",
+*	 	 "OrderFinish":"0"
+*	   } 
+*	}
+***************************************/
+void MsgToROS::generate_Json(string name, string emotion, bool greetingDone,string speechRecoResult, string DrinkName, string CupNum, string CupType, string Temp, bool OrderFinish, char* destination){
 
-	char temp1[512] = "{\"name\":\"";
-	char temp2[20]  = "\",\"emotion\":\"";
-	char temp3[20]  = "\",\"OrderFinish\":\"";
+	string json;
 
-	strcat(temp1,name);
+	json = "{\"name\":\"" + name + "\",\"emotion\":\"" + emotion + "\",\"greetingDone\":\"";
 
-	strcat(temp1,temp2);
+	greetingDone == true ? json += "true" : json += "false";
 
-	strcat(temp1,emotion);
+	json += "\",\"speechRecoResult\":\"" + speechRecoResult + "\",\"OrderInfo\":{\"DrinkName\":\"" + DrinkName + "\",\"CupNum\":\"" + CupNum + "\",\"CupType\":\"" + CupType + "\",\"Temp\":\"" + Temp + "\",\"OrderFinish\":\""; 
 
-	strcat(temp1,temp3);
+	OrderFinish == true ? json += "true\"}}" : json += "false\"}}";	   
 
-	OrderFinish == true ? strcat(temp1,"1") : strcat(temp1,"0");
-
-	strcat(temp1,"\"}");
-
-	strcpy(json,temp1);
+	strcpy(destination,json.c_str());	   
 }
 
 
@@ -139,7 +158,7 @@ void* _order(void* arg){
 				cout << "[ 'order' ] command is currently equal to " << "'"<< msgFromROS.cmd  << "'" << endl;
 				
 				/*greeting first*/
-				/*empty the extStitching*/
+				/*empty the textStitching*/
 				strcpy(textStitching,"");
 				/*add the name to textStitching*/
 				if(0!=strcmp(msgFromROS.name,""))
@@ -156,16 +175,23 @@ void* _order(void* arg){
 				strcat(textStitching,Greeting);
 
 				/*first to serve someone, express 'honored' emotion*/
-				msgToROS.generateJsonToROS(msgFromROS.name, "honored", OrderFinish, msgToROS.Json);
+				msgToROS.greetingDone = false; //default
+				msgToROS.generate_Json(msgFromROS.name, "honored", msgToROS.greetingDone, msgToROS.speechRecoResult, msgToROS.DrinkName, msgToROS.CupNum, msgToROS.CupType, msgToROS.Temp, msgToROS.OrderFinish, msgToROS.Json);
 				int res = write(pipe_fd_wr, msgToROS.Json, strlen(msgToROS.Json));
 				if(res==-1)  cout << "[ 'order' ] write err! " << endl;
 
 				/*synthesis greeting audio & play*/
 				SpeechSynthesis(textStitching);
 				playSound(wavpath);
+
+				/*after greeting, set the flag greetingDone=true, and notify ROS*/
+				msgToROS.greetingDone = true;
+				msgToROS.generate_Json(msgFromROS.name, "honored", msgToROS.greetingDone, msgToROS.speechRecoResult, msgToROS.DrinkName, msgToROS.CupNum, msgToROS.CupType, msgToROS.Temp, msgToROS.OrderFinish, msgToROS.Json);
+				res = write(pipe_fd_wr, msgToROS.Json, strlen(msgToROS.Json));
+				if(res==-1)  cout << "[ 'order' ] write err! " << endl;
 			}
 
-			/*check the cmd*/
+			/*!!!!check the cmd!!!!*/
 			if(0!=strcmp(msgFromROS.cmd,"working")) {
 				/*specific response here*/
 				break;
@@ -174,46 +200,37 @@ void* _order(void* arg){
 			/*recording process*/
 			SpeechRecognition();
 
-			/*write to cloud*/
-			KEVIN.writeText(g_result);
+			/*after recording, save the result and write to ROS*/
+			msgToROS.speechRecoResult = g_result;
+			msgToROS.generate_Json(msgFromROS.name, "", msgToROS.greetingDone, msgToROS.speechRecoResult, msgToROS.DrinkName, msgToROS.CupNum, msgToROS.CupType, msgToROS.Temp, msgToROS.OrderFinish, msgToROS.Json);
+			int res = write(pipe_fd_wr, msgToROS.Json, strlen(msgToROS.Json));
+			if(res==-1)  cout << "[ 'order' ] write err! " << endl;
+			msgToROS.speechRecoResult = "";
 
-			/*wait until AIUI result available*/
-			while(AIUI_Done==false);  
-
-			/*check the cmd*/
+			/*!!!!check the cmd!!!!*/
 			if(0!=strcmp(msgFromROS.cmd,"working")) {
 				/*specific response here*/
 				break;
 			}
 
+			/*write to cloud*/
+			KEVIN.writeText(g_result);
+			/*wait until AIUI result available*/
+			while(AIUI_Done==false);  
 
 			/*AIUI_Done = true*/
 			if( AnswerType==Custom || AnswerType==Turing ){
-				
-				if(OrderFinish==true){
-					OrderFinish = false;
-					//order finish, change the status to 'idle'
-					strcpy(msgFromROS.cmd,"idle");
-				}	
-				
+
 				SpeechSynthesis((char*)ExtractResult.data());
 				playSound(wavpath);
 			}
 			else if( AnswerType==NoAnswer ){
-
-				msgToROS.generateJsonToROS(msgFromROS.name, "regret", OrderFinish, msgToROS.Json);
-				int res = write(pipe_fd_wr, msgToROS.Json, strlen(msgToROS.Json));
-				if(res==-1)  cout << "[ 'order' ] write err! " << endl;
 				
 				/*fixed response, save to local*/
-				SpeechSynthesis(Response_2_noAnswer); 
+				SpeechSynthesis((char*)ExtractResult.data()); 
 				playSound(wavpath);
 			}
 			else if( AnswerType==NoSound ){
-
-				msgToROS.generateJsonToROS(msgFromROS.name, "puzzled", OrderFinish, msgToROS.Json);
-				int res = write(pipe_fd_wr, msgToROS.Json, strlen(msgToROS.Json));
-				if(res==-1)  cout << "[ 'order' ] write err! " << endl;
 				
 				/*fixed response, save to local*/
 				SpeechSynthesis(Response_2_noSound[1]);;
@@ -246,7 +263,11 @@ void* _extractJsonFromROS(void *arg){
  
 	//RD_ONLY & BLOCKING
 	pipe_fd_rd = open(fifo_name, open_mode);
-	if(pipe_fd_rd == -1)   cout << " open ros_2_iFlytek err !" << endl;
+	if(pipe_fd_rd == -1)   
+		cout << " open ros_2_iFlytek err !" << endl;
+	else 
+		cout << "open ros_2_iFlytek successfully!" << endl;
+
 
 
 	while(1){
@@ -261,6 +282,7 @@ void* _extractJsonFromROS(void *arg){
 
 			pipe_fd_rd = open(fifo_name, open_mode);
 			if(pipe_fd_rd == -1)   cout << " open err " << endl;
+
 		}
 		else if(bytes_read>0){
 
@@ -273,19 +295,19 @@ void* _extractJsonFromROS(void *arg){
 		usleep(1000*10); 
 
 		
-		msgFromROS.extractJsonFromROS(msgFromROS.keyCmd, msgFromROS.Json,msgFromROS.cmd);
+		msgFromROS.extract_Json(msgFromROS.keyCmd, msgFromROS.Json,msgFromROS.cmd);
 	
 		cout << "\t\t\t\t\t\t\t" << "[ 'getJson' ] " << left << setw(10) << "command: " << msgFromROS.cmd << endl;
 	
-		msgFromROS.extractJsonFromROS(msgFromROS.keyName, msgFromROS.Json,msgFromROS.name);
+		msgFromROS.extract_Json(msgFromROS.keyName, msgFromROS.Json,msgFromROS.name);
 		
 		cout << "\t\t\t\t\t\t\t" << "[ 'getJson' ] " << left << setw(10) << "name: " << msgFromROS.name << endl;
 		
-		msgFromROS.extractJsonFromROS(msgFromROS.keyGender, msgFromROS.Json,msgFromROS.gender);
+		msgFromROS.extract_Json(msgFromROS.keyGender, msgFromROS.Json,msgFromROS.gender);
 		
 		cout << "\t\t\t\t\t\t\t" << "[ 'getJson' ] " << left << setw(10) << "gender: " << msgFromROS.gender << endl;
 
-		msgFromROS.extractJsonFromROS(msgFromROS.keyAge, msgFromROS.Json,msgFromROS.age);
+		msgFromROS.extract_Json(msgFromROS.keyAge, msgFromROS.Json,msgFromROS.age);
 		
 		cout << "\t\t\t\t\t\t\t" << "[ 'getJson' ] " << left << setw(10) << "age: " << msgFromROS.age << endl;
 		
@@ -327,18 +349,6 @@ int main()
 		cout << "open iFlytek_2_ros successfully!" << endl;
 	/*******************************************************************/
 #endif
-
-	//test for playWav
-
-
-
-	// while(1){
-	// 	/*fixed response, save to local*/
-	// 	SpeechSynthesis(Response_2_noSound[0]);;
-	// 	playSound(wavpath);
-	// 	usleep(1000*10);
-		
-	// }
 
 
 	while(1){
@@ -430,10 +440,9 @@ int main()
 	        if (ret != 0) 
 	            printf("getCmd pthread_create error: error_code = %d\n", ret);
 
+	        while(1);
 		}
 
-		while(1);
-		
 	}
 
     pthread_exit(NULL);

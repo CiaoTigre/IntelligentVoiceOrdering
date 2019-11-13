@@ -35,6 +35,13 @@
 using namespace aiui;
 using namespace std;
 
+#define OPT_HOT   0B0100
+#define OPT_COLD  0B0010
+#define OPT_NONE  0B0000
+#define OPT_VALID 0B0001
+#define OPT_ERR   0B1000	
+
+
 /* type of answer by AIUI*/
 enum ANSWER_TYPE
 {

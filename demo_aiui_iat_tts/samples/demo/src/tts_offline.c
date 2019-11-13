@@ -174,7 +174,7 @@ int SpeechSynthesis(const char* text2speech)
 	/* 
 	* The following is the speech synthesis code.
 	*/
-	printf("\n【...3# SYNTHESIS PROCESS...】\n");
+	printf("\n\n==== 3# SYNTHESIS PROCESS======");
 	ret = text_to_speech(text2speech, filename, session_begin_params);
 	if (MSP_SUCCESS != ret)
 	{
