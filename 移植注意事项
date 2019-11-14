@@ -7,3 +7,5 @@
 3、安装库libasound2-dev
 
 4、x64：libmsc_aiui.so libaiui.so libmsc.so(用离线语音合成包里面的库，已经移到demo_aiui_iat_tts_test2包下面)
+
+5、
