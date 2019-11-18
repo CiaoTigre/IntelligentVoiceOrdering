@@ -152,9 +152,9 @@ int SpeechSynthesis(const char* text2speech)
 	* voice_name:    合成发音人
 	* sample_rate:   合成音频采样率
 	* text_encoding: 合成文本编码格式
-	*
+	* purextts
 	*/
-	const char* session_begin_params = "engine_type = cloud,voice_name=xiaofeng, text_encoding = UTF8, tts_res_path = fo|/home/kevin/intelligentvoiceordering/demo_aiui_iat_tts/bin/msc/res/tts/xiaofeng.jet;fo|/home/kevin/intelligentvoiceordering/demo_aiui_iat_tts/bin/msc/res/tts/common.jet, sample_rate = 16000, speed = 77, volume = 50, pitch = 50, rdn = 2";	
+	const char* session_begin_params = "engine_type = purextts,voice_name=xiaoguan, text_encoding = UTF8, tts_res_path = fo|/home/kevin/intelligentvoiceordering/demo_aiui_iat_tts/bin/msc/res/tts/xiaoguan.jet;fo|/home/kevin/intelligentvoiceordering/demo_aiui_iat_tts/bin/msc/res/tts/common.jet, sample_rate = 16000, speed = 60, volume = 50, pitch = 50, rdn = 2";	
 	const char* filename             = "demo.wav"; //合成的语音文件名称
 	const char* text                 = "亲爱的用户，您好，这是一个语音合成示例，感谢您对科大讯飞语音技术的支持！科大讯飞是亚太地区最大的语音上市公司，股票代码：002230亲爱的用户，您好，这是一个语音合成示例，感谢您对科大讯飞语音技术的支持！科大讯飞是亚太地区最大的语音上市公司，股票代码：002230"; //合成文本
 	
