@@ -25,7 +25,7 @@ int playSound(const char* filepath)
         printf("error: alsa_play_test [music name]\n");
         exit(1);
     }*/
-    cout << "\n\n==== 4# PLAYING PROCESS========" << endl;
+    cout << "\n\n== 4# PLAYING PROCESS ====================" << endl;
     cout << "Start playing: /" << filepath << endl;
     FILE *fp = fopen(filepath, "rb");
     if(fp == NULL)

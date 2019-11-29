@@ -55,8 +55,28 @@ enum STATE
 {
 	Entry,
 	Process,
-	End
+	End,
+
+	Recommendation, //新增推荐提问
+	Coffee,			//咖啡系列
+	Cockail,		//鸡尾酒系列
+	Mocktail, 		//无酒精鸡尾酒 CocktailWithoutAlcohol
+	LiqueurCoffee,	//酒咖系列
+	ColdDrink 		//冷饮系列
 };
+
+
+//将上面两个枚举都放进来
+class OrderProcessManager
+{
+public:
+
+	int n_NoSound = 0;
+	int n_NoAnswer = 0;
+ 	
+
+};
+
 
 
 //写测试音频线程

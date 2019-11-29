@@ -11,9 +11,9 @@
 #include <unistd.h>
 #include <string.h>
 #include "speech_recognizer.h"
-#include "/home/kevin/iFlytek/demo_aiui_iat_tts_test/include/iat_tts/qisr.h"
-#include "/home/kevin/iFlytek/demo_aiui_iat_tts_test/include/iat_tts/msp_cmn.h"
-#include "/home/kevin/iFlytek/demo_aiui_iat_tts_test/include/iat_tts/msp_errors.h"
+#include "../../../../demo_aiui_iat_tts/include/iat_tts/qisr.h"
+#include "../../../../demo_aiui_iat_tts/include/iat_tts/msp_cmn.h"
+#include "../../../../demo_aiui_iat_tts/include/iat_tts/msp_errors.h"
 #include "linuxrec.h"
 
 

@@ -1,0 +1,36 @@
+# First make sure to update pip:
+#     $ sudo pip install --upgrade pip
+#
+# Then you probably want to work in a virtualenv (optional):
+#     $ sudo pip install --upgrade virtualenv
+# Or if you prefer you can install virtualenv using your favorite packaging
+# system. E.g., in Ubuntu:
+#     $ sudo apt-get update && sudo apt-get install virtualenv
+# Then:
+#     $ cd $my_work_dir
+#     $ virtualenv my_env
+#     $ . my_env/bin/activate
+#
+# Next, optionally uncomment the OpenAI gym lines (see below).
+# If you do, make sure to install the dependencies first.
+# If you are interested in xgboost for high performance Gradient Boosting, you
+# should uncomment the xgboost line (used in the ensemble learning notebook).
+#
+# Then install these requirements:
+#     $ pip3 install --upgrade -r requirements.txt
+#
+# Finally, start jupyter:
+#     $ jupyter notebook
+#
+
+
+#===================================
+##### WebAPI used third-party libs
+cffi==1.12.3
+gevent==1.4.0
+greenlet==0.4.15
+pycparser==2.19
+six==1.12.0
+websocket==0.2.1
+websocket-client==0.56.0
+ 

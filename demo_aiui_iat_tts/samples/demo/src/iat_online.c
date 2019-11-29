@@ -321,7 +321,7 @@ int SpeechRecognition(void)
 	/* 
 	* The following is the speech recognition code.
 	*/
-	printf("\n\n==== 1# RECOGNITION PROCESS====\n");
+	printf("\n\n== 1# RECOGNITION PROCESS ================\n");
 	// printf("\nWhere the audio comes from?\n"
 	// 		"0: From a audio file.\n1: From microphone.\n");
 	// scanf("%d", &aud_src);

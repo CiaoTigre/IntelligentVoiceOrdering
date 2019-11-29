@@ -32,6 +32,9 @@ extern "C"{
 using namespace std;
 using namespace aiui;
 
+//改版
+extern OrderProcessManager OrderProcessManager;
+
 /* extracted from resultChar */
 extern string ExtractResult;   
 extern bool AIUI_Done;
@@ -145,7 +148,6 @@ void* _order(void* arg){
 
 	while(1){
 		
-
 		while(0==strcmp(msgFromROS.cmd,"working")){
 
 			/*First to serve someone*/
@@ -153,7 +155,10 @@ void* _order(void* arg){
 
 				/*Automatically start the skill*/
 				KEVIN.writeText("开始点餐");
+				cout << "test_point1" << endl;
 				while(AIUI_Done==false);
+
+				cout << "test_point2" << endl;
 
 				cout << "[ 'order' ] command is currently equal to " << "'"<< msgFromROS.cmd  << "'" << endl;
 				
@@ -215,11 +220,12 @@ void* _order(void* arg){
 
 			/*write to cloud*/
 			KEVIN.writeText(g_result);
+
 			/*wait until AIUI result available*/
 			while(AIUI_Done==false);  
-
+			
 			/*AIUI_Done = true*/
-			if( AnswerType==Custom || AnswerType==Turing ){
+			if( AnswerType==Custom || AnswerType==Turing ){	
 
 				SpeechSynthesis((char*)ExtractResult.data());
 				playSound(wavpath);
@@ -232,9 +238,15 @@ void* _order(void* arg){
 			}
 			else if( AnswerType==NoSound ){
 				
-				/*fixed response, save to local*/
 				SpeechSynthesis(Response_2_noSound[1]);;
-				playSound(wavpath);
+				playSound(wavpath);	
+
+				/*fixed response, save to local*/
+				// if(OrderProcessManager.n_NoSound>3){
+				// 	SpeechSynthesis(Response_2_noSound[1]);;
+				// 	playSound(wavpath);
+				// 	OrderProcessManager.n_NoSound = 0;
+				// }
 			}
 
 			conversationCnt++;	
@@ -253,7 +265,8 @@ void* _order(void* arg){
 void* _extractJsonFromROS(void *arg){
 
 
-	const char *fifo_name = "/home/kevin/myfifo/ros_2_iFlytek";
+	// const char *fifo_name = "/home/kevin/myfifo/ros_2_iFlytek";
+	const char *fifo_name = "../../../myfifo/ros_2_iFlytek";
 	int open_mode = O_RDONLY;
 	char buffer[PIPE_BUF+1];
 	int bytes_read = 0; 
@@ -317,17 +330,20 @@ void* _extractJsonFromROS(void *arg){
 
 #define toROS
 
+
 int main()
 {
 
 	string choice;
-	
 
-	cout << "input choice :" << endl;
+
+	// cout << "input choice :" << endl;
+
 
 #ifdef toROS
 	/****************** Create FIFO: WR_ONLY & BLOCKING *****************/
-	const char *fifo_name = "/home/kevin/myfifo/iFlytek_2_ros";
+	// const char *fifo_name = "/home/kevin/myfifo/iFlytek_2_ros";
+	const char *fifo_name = "../../../myfifo/iFlytek_2_ros";
 	int res = 0;
 	const int open_mode = O_WRONLY;   
 
@@ -357,6 +373,7 @@ int main()
 
 		//default choice: multi-thread
 		choice = "multithread";
+	
 
 		if(choice=="c"){
 			cout << "createAgent" << endl;
@@ -393,12 +410,15 @@ int main()
 
 			while(1){
 
+				string cmd = "working";
 				// cout << cmd << endl;
 
-				while(msgFromROS.cmd=="working"){
+				while(cmd=="working"){
+
+					// g_result = "开始点餐";
 
 					SpeechRecognition();
-					KEVIN.writeText(g_result);
+					KEVIN.writeText("开始点餐");
 
 					/* wait until AIUI result available */
 					while(AIUI_Done==false);  
