@@ -27,7 +27,7 @@
 #===================================
 ##### WebAPI used third-party libs
 cffi==1.12.3
-gevent==1.4.0
+gevent==23.9.1
 greenlet==0.4.15
 pycparser==2.19
 six==1.12.0
